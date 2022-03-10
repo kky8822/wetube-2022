@@ -1,0 +1,36 @@
+{
+  "name": "wetube-2022",
+  "version": "1.0.0",
+  "description": "youtube clone coding",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kky8822/wetube-2022.git"
+  },
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/init.js"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "javascript",
+    "nodejs"
+  ],
+  "author": "kyeyeop.kim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kky8822/wetube-2022/issues"
+  },
+  "homepage": "https://github.com/kky8822/wetube-2022#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.4",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "nodemon": "^2.0.15"
+  }
+}
