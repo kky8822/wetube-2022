@@ -1,4 +1,4 @@
-extends base
+extends ../base
 
 block content
     if errorMessage 
@@ -11,3 +11,7 @@ block content
         input(name="password_c", placeholder="confirm password", type="password", required)
         input(name="location", placeholder="location", type="text", required)
         input(type="submit", value="Join")
+    hr
+    div
+        span Already have an Account? 
+        a(href="/login") Log In Now &rarr;
