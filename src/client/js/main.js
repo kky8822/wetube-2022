@@ -1,3 +1,3 @@
 import "../scss/styles.scss";
 
-console.log("sshi");
+console.log("hi");

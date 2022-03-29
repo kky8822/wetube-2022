@@ -170,6 +170,8 @@ export const postEdit = async (req, res) => {
     body: { name, email, username, location },
     file,
   } = req;
+  console.log(req.body);
+  console.log(req.file);
 
   const isMe =
     res.locals.loggedInUser.name === name ||
