@@ -6,13 +6,24 @@
     background-color: ivory;
   }
   .video-mixin__data {
-    padding: 0px 15px;
+    margin-top: 10px;
+    padding: 0px 5px;
+    display: flex;
+    align-items: center;
+
+    .video-mixin__avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
     .video-mixin__title {
       font-size: 18px;
       display: block;
-      margin-top: 10px;
+      margin-left: 10px;
     }
     .video-mixin__meta {
+      margin-left: 10px;
       margin-top: 5px;
       font-size: 12px;
     }
