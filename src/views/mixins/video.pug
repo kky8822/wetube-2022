@@ -1,9 +1,13 @@
 mixin video(video)
-    a(href=`/videos/${video.id}`).video-mixin
+    div.video-mixin
+        a(href=`/videos/${video.id}`)
         div.video-mixin__thumb
         div.video-mixin__data
-            if video.owner.avatarUrl
-                img(src=`${video.owner.avatarUrl}`, width=40, height=40).video-mixin__avatar
+            a(href=`/users/${video.owner._id}`)
+                if video.owner.avatarUrl
+                    img(src=`${video.owner.avatarUrl}`, width=40, height=40).small-avatar
+                else
+                    span 😃
             div
                 span.video-mixin__title=video.title
                 div.video-mixin__meta
