@@ -1,11 +1,11 @@
 mixin video(video)
     div.video-mixin
         a(href=`/videos/${video.id}`)
-        div.video-mixin__thumb
+        div.video-mixin__thumb(style=`background-image:url(${video.thumbUrl});background-size:cover;background-position:center;`)
         div.video-mixin__data
             a(href=`/users/${video.owner._id}`)
                 if video.owner.avatarUrl
-                    img(src=`${video.owner.avatarUrl}`, width=40, height=40).small-avatar
+                    img(src=video.owner.avatarUrl, width=40, height=40, crossorigin).small-avatar
                 else
                     span 😃
             div

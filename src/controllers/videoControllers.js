@@ -73,7 +73,7 @@ export const postUpload = async (req, res) => {
     session: {
       user: { _id },
     },
-    file: { path: fileUrl },
+    files: { video, thumb },
     body: { title, description, hashtags },
   } = req;
 
@@ -81,7 +81,9 @@ export const postUpload = async (req, res) => {
     const newVideo = await Video.create({
       title,
       description,
-      fileUrl,
+      fileUrl: video[0].path,
+      // thumbUrl: thumb[0].path,
+      thumbUrl: thumb[0].destination + "/" + thumb[0].filename,
       owner: _id,
       hashtags: Video.formatHashtags(hashtags),
     });
@@ -129,4 +131,15 @@ export const search = async (req, res) => {
     }).populate("owner");
   }
   return res.render("videos/search", { pageTitle: "Search", videos });
+};
+
+export const resisterView = async (req, res) => {
+  const { id } = req.params;
+  const video = await Video.findById(id);
+  if (!video) {
+    return res.sendStatus(404);
+  }
+  video.meta.views = video.meta.views + 1;
+  await video.save();
+  return res.sendStatus(200);
 };
