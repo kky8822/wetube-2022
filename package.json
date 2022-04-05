@@ -7,8 +7,12 @@
     "url": "git+https://github.com/kky8822/wetube-2022.git"
   },
   "scripts": {
+    "start": "node build/init.js",
+    "build": "npm run build:server && npm run build:assets",
+    "build:server": "babel src -d build --ignore src/client",
+    "build:assets": "webpack --mode=production",
     "dev:server": "nodemon",
-    "dev:assets": "webpack"
+    "dev:assets": "webpack --mode=development -w"
   },
   "keywords": [
     "html",
@@ -42,6 +46,7 @@
     "@babel/core": "^7.17.5",
     "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.16.11",
+    "@babel/cli": "^7.17.6",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.7.1",
     "mini-css-extract-plugin": "^2.6.0",

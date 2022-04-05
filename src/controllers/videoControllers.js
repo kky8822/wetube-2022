@@ -157,14 +157,17 @@ export const createComment = async (req, res) => {
   if (!video) {
     return res.sendStatus(404);
   }
+  console.log(user);
   const commentUser = await User.findById(user._id);
   const comment = await Comment.create({
     text,
     owner: user._id,
     video: id,
   });
+
   video.comments.push(comment._id);
   video.save();
+  console.log(commentUser);
   commentUser.comments.push(comment._id);
   commentUser.save();
   req.session.user = commentUser;
