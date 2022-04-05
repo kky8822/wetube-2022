@@ -2,8 +2,10 @@ extends ../base
 
 block content
     h4 Update Video
-    form(method="POST")
+    form(method="POST", enctype="multipart/form-data").upload__form
+        label(for="thumb") Thumbnail File
+        input(name="thumb", id="thumb", type="file", accept="image/*")
         input(name="title", placeholder="Title", type="text", required, maxlength=80, value=video.title)
         input(name="description", placeholder="Description", type="text", required, minlength=20, value=video.description)
-        input(name="hashtags", placeholder="Hashtags, seperated by comma.", type="text", required, value=video.hashtags.join())
-        input(value="Save",type="submit") 
+        input(name="hashtags", placeholder="Hashtags, seperated by comma.", type="text", required ,value=video.hashtags.join())
+        input(value="Save",type="submit")

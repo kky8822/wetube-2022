@@ -16,7 +16,7 @@ videoRouter
   .route("/:id([0-9a-f]{24})/edit")
   .all(protectorMiddleware)
   .get(getEdit)
-  .post(postEdit);
+  .post(videoUpload.single("thumb"), postEdit);
 videoRouter
   .route("/:id([0-9a-f]{24})/delete")
   .get(protectorMiddleware, deleteVideo);
