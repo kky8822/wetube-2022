@@ -61,7 +61,7 @@ export const postEdit = async (req, res) => {
     title,
     description,
     hashtags: Video.formatHashtags(hashtags),
-    thumbUrl: file ? "/" + file.location : thumbUrl,
+    thumbUrl: file ? file.location : thumbUrl,
   });
   req.flash("success", "Changes saved.");
   return res.redirect(`/videos/${id}`);
