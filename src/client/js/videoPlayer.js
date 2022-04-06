@@ -132,3 +132,6 @@ videoContainer.addEventListener("mouseleave", handleMouseLeave);
 timeline.addEventListener("input", handleTimelineChange);
 fullScreenBtn.addEventListener("click", handleFullscreen);
 document.addEventListener("keyup", handleSpaceBar);
+if (video.readyState == 4) {
+handleLoadedMetadata();
+}
