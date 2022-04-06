@@ -1,7 +1,11 @@
 mixin video(video)
     div.video-mixin
         a(href=`/videos/${video.id}`)
-        div.video-mixin__thumb(style=`background-image:url(${video.thumbUrl});background-size:cover;background-position:center;`)
+        div.video-mixin__thumb
+            img(src=video.thumbUrl, crossorigin)
+        //- (style=`background-image:url(${video.thumbUrl});backgroud-image-crossorigin;background-size:cover;background-position:center;`)
+            
+        
         div.video-mixin__data
             a(href=`/users/${video.owner._id}`)
                 if video.owner.avatarUrl
