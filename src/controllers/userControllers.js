@@ -3,6 +3,8 @@ import Video from "../models/Video";
 import bcrypt from "bcrypt";
 import fetch from "cross-fetch";
 
+const isHeroku = process.env.NODE_ENV === "production";
+
 export const getJoin = (req, res) =>
   res.render("users/join", { pageTitle: "Join" });
 
@@ -194,7 +196,7 @@ export const postEdit = async (req, res) => {
     const updateUser = await User.findByIdAndUpdate(
       _id,
       {
-        avatarUrl: file ? file.location : avatarUrl,
+        avatarUrl: file ? (isHeroku ? file.location : file.path) : avatarUrl,
         name,
         email,
         username,
