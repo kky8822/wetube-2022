@@ -1,6 +1,17 @@
 import multer from "multer";
 import multerS3 from "multer-s3";
 import aws from "aws-sdk";
+import FTPStorage from "multer-ftp";
+
+const ftpStorage = new FTPStorage({
+  basepath: "/remote/path",
+  ftp: {
+    host: "kky8822.ipdisk.co.kr",
+    secure: true, // enables FTPS/FTP with TLS
+    user: process.env.FTP_ID,
+    password: process.env.FTP_PASSWD,
+  },
+});
 
 const s3 = new aws.S3({
   credentials: {
@@ -52,11 +63,13 @@ export const publicOnlyMiddleware = (req, res, next) => {
 export const avatarUpload = multer({
   dest: "uploads/avatars",
   limits: { fileSize: 3000000 },
-  storage: isHeroku ? s3ImageUploader : undefined,
+  // storage: isHeroku ? s3ImageUploader : undefined,
+  storage: ftpStorage,
 });
 
 export const videoUpload = multer({
   dest: "uploads/videos",
   limits: { fileSize: 100000000 },
-  storage: isHeroku ? s3VideoUploader : undefined,
+  // storage: isHeroku ? s3VideoUploader : undefined,
+  storage: ftpStorage,
 });
