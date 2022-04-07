@@ -41,8 +41,11 @@
     "morgan": "^1.10.0",
     "multer": "^1.4.4",
     "multer-s3": "^2.10.0",
+    "multer-sftp": "^1.1.1",
     "pug": "^3.0.2",
-    "regenerator-runtime": "^0.13.9"
+    "queue": "^6.0.2",
+    "regenerator-runtime": "^0.13.9",
+    "ssh2-sftp-client": "^8.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
